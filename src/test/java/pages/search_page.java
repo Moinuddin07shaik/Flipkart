@@ -11,10 +11,10 @@ import org.openqa.selenium.support.PageFactory;
 import Baseclass.Library;
 import ResusabilityFunctions.seleniumResuable;
 
-public class searchpage extends Library {
+public class search_page extends Library {
 	seleniumResuable se;
 
-	public searchpage(WebDriver driver) {
+	public search_page(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 

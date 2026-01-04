@@ -4,63 +4,101 @@ import java.io.File;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import Baseclass.Library;
 
 public class seleniumResuable extends Library {
-	
+
+	Actions act;
+
 	public seleniumResuable(WebDriver driver) {
-		this.driver=driver;
+		this.driver = driver;
 	}
-	
+
 	public void entervalue(WebElement element, String text) {
 		try {
 			element.sendKeys(text);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("No such Element exception");
-		
+
 		}
 	}
+
 	public void Click(WebElement element) {
 		try {
 			element.click();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("No such Element exception");
 		}
 	}
+
 	public void gettitle() {
 		try {
 			System.out.println(driver.getTitle());
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("Not found get title");
 		}
 	}
+
 	public void screenshot(String path) {
-		TakesScreenshot ts=(TakesScreenshot)driver;
+		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(source, new File(path));
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("screenshot not capture");
 		}
 	}
+
 	public void MultipleGettext(List<WebElement> element) {
-		List<WebElement> text=element;
+		List<WebElement> text = element;
 		System.out.println(text.size());
-		
-		for(WebElement textcount: text) {
+
+		for (WebElement textcount : text) {
 			String totallist = textcount.getText();
 			System.out.println("*************************************************");
 			System.out.println(totallist);
 		}
 	}
+
 	public void Getvalue(WebElement element) {
 		String text = element.getText();
 		System.out.println(text);
 	}
 
+	public void dropdown(WebElement element, String text) {
+		Select drp = new Select(element);
+		drp.selectByValue(text);
+	}
+
+	public void scrolldown(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", element);
+	}
+
+	public void waits() throws Throwable {
+		Thread.sleep(2000);
+	}
+
+	public void mousehover(WebElement element) {
+		act = new Actions(driver);
+		act.moveToElement(element).perform();
+	}
+
+	public void moveelement(WebElement element) {
+		act.moveToElement(element).click().perform();
+	}
+
+	public void highlightElement(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].style.border='3px solid red'", element);
+
+	}
 }

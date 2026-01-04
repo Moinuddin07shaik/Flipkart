@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import Baseclass.Library;
 import io.cucumber.java.en.*;
-import pages.searchpage;
+import pages.search_page;
 
 public class searchmobile_testcase extends Library {
-	searchpage sp;
+	search_page sp;
 	@Given("Launch the Flipkart application")
 	public void launch_the_flipkart_application() throws IOException {
 		launchapplication();
@@ -21,7 +21,7 @@ public class searchmobile_testcase extends Library {
 
 	@Then("It should navigate to home page")
 	public void it_should_navigate_to_home_page() {
-		sp = new searchpage(driver);
+		sp = new search_page(driver);
 		sp.homescreen();
 	    
 	}
