@@ -25,3 +25,18 @@ And move to girls dress and click
 And Click the price high to low link
 Then  It should display the relevant details and get the title
 
+@tc003
+Scenario: To validate search functionality with different values
+
+Given Enter the "<searchtext>" in the field
+When click the search button 
+Then it should navigates to the text page and display the corresponding page
+
+Examples:
+
+|searchtext|
+|Mobile|
+|TV|
+|speaker|
+|Shirt|
+

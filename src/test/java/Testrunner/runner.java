@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features="C:\\Users\\moinu\\eclipse-workspace\\Flipkart\\src\\test\\resources\\features\\searchfunctionality.feature",
 glue="stepdefination",
-tags="@tc002",
+tags="@tc003",
 plugin= {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, monochrome =true
 )
 
