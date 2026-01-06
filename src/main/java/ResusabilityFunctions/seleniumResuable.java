@@ -2,6 +2,7 @@ package ResusabilityFunctions;
 
 import java.io.File;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
@@ -100,5 +101,22 @@ public class seleniumResuable extends Library {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].style.border='3px solid red'", element);
 
+	}
+	public  void windowhandling(WebElement element) {
+		
+		String parentwindow = driver.getWindowHandle();
+		//element.click();
+		System.out.println(parentwindow);
+		
+		Set<String> allwindow = driver.getWindowHandles();
+		System.out.println(allwindow.size());
+		for(String chilwindow: allwindow) {
+			driver.switchTo().window(chilwindow);
+			System.out.println(chilwindow);
+			
+			
+		}
+		
+		
 	}
 }
