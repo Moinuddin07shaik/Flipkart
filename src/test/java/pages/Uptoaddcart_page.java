@@ -38,7 +38,7 @@ public class Uptoaddcart_page extends Library {
 		//se.highlightElement(Flipkartzone);
 		se.moveelement(Flipkartzone);
 	}
-	public void MousetoHome_Furniture() {
+	public void MousetoHome_Furniture() {  
 		se.highlightElement(Home_furniture);
 		se.mousehover(Home_furniture);
 	}

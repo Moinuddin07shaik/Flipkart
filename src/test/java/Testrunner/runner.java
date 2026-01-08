@@ -1,18 +1,19 @@
 package Testrunner;
 
-import org.junit.runner.RunWith;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-@RunWith(Cucumber.class)
+//@RunWith(Cucumber.class)
 @CucumberOptions(features="C:\\Users\\moinu\\eclipse-workspace\\Flipkart\\src\\test\\resources\\features\\searchfunctionality.feature",
 glue="stepdefination",
-tags="@tc004",
+tags="@tc005",
 plugin= {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, monochrome =true
 )
 
-public class runner {
+public class runner extends AbstractTestNGCucumberTests {
+	
+	
 	
 
 }

@@ -50,3 +50,12 @@ And Going to click the wall lamp
 And Scroll down the page and click on particular result
 And Enter delivery pincode and click the check link
 Then Pincode should be checked and display and verify the title
+
+@tc005
+Scenario: To get the title and price from search
+Given Enter the search text in the text field
+When click the search icon
+Then It should display the search result and get the title
+
+
+
