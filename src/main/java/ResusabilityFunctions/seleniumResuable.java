@@ -14,6 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import Baseclass.Library;
+import io.cucumber.java.Scenario;
 
 public class seleniumResuable extends Library {
 
@@ -114,9 +115,17 @@ public class seleniumResuable extends Library {
 			driver.switchTo().window(chilwindow);
 			System.out.println(chilwindow);
 			
-			 
 		}
-		
-		
+		  }
+	
+		public void attachscreenshot(Scenario cucumberscenario) {
+			final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			cucumberscenario.attach(screenshot, "image/png", "FlipkartAutomation");
+			
+		}
+		public void closeapp() {
+			driver.quit();
+			System.out.println("close browser");
+		}
 	}
-}
+

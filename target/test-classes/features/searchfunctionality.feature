@@ -25,7 +25,7 @@ And move to girls dress and click
 And Click the price high to low link
 Then  It should display the relevant details and get the title
 
-@tc003
+@tc003 @Regression
 Scenario: To validate search functionality with different values
 
 Given Enter the "<searchtext>" in the field
@@ -40,7 +40,7 @@ Examples:
 |speaker|
 |Shirt|
 
-@tc004
+@tc004 @Regression
 Scenario: To validate upto addcart functionality
 
 Given User can move to the login link
@@ -51,11 +51,15 @@ And Scroll down the page and click on particular result
 And Enter delivery pincode and click the check link
 Then Pincode should be checked and display and verify the title
 
-@tc005
+@tc005 @Regression
 Scenario: To get the title and price from search
 Given Enter the search text in the text field
 When click the search icon
 Then It should display the search result and get the title
 
+Scenario: gettext value from search field
+Given Enter the value in search field
+When gettext value from search field and store in a variale
+Then navigate to new window and store value enter in search field
 
 

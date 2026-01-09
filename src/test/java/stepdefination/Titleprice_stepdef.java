@@ -26,7 +26,7 @@ public class Titleprice_stepdef extends Library {
 	@Then("It should display the search result and get the title")
 	public void it_should_display_the_search_result_and_get_the_title() {
 	    re =new seleniumResuable(driver);
-	    re.MultipleGettext(driver.findElements(By.xpath("//div[@class='Fo1I0b']")));
+	    re.MultipleGettext(driver.findElements(By.xpath("//div[@class='p0C73x']")));
 	}
 
 
