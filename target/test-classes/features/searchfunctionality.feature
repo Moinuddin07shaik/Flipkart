@@ -57,9 +57,10 @@ Given Enter the search text in the text field
 When click the search icon
 Then It should display the search result and get the title
 
-Scenario: gettext value from search field
-Given Enter the value in search field
-When gettext value from search field and store in a variale
-Then navigate to new window and store value enter in search field
+@tc006 @Regression
+Scenario: To Test the search functionality with excell sheet
 
+Given Enter search test in the search field
+When click search icon
+Then It Should display the Relevant result
 

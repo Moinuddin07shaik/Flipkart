@@ -127,5 +127,8 @@ public class seleniumResuable extends Library {
 			driver.quit();
 			System.out.println("close browser");
 		}
+		public void navigateback() {
+			driver.navigate().back();
+			}
 	}
 
