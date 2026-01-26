@@ -27,6 +27,8 @@ public class seleniumResuable extends Library {
 	public void entervalue(WebElement element, String text) {
 		try {
 			element.sendKeys(text);
+			logger.info("**************** Enter Value *****************");
+
 		} catch (Exception e) {
 			System.out.println("No such Element exception");
 
@@ -36,6 +38,8 @@ public class seleniumResuable extends Library {
 	public void Click(WebElement element) {
 		try {
 			element.click();
+			logger.info("***************** Clicked button *****************");
+
 		} catch (Exception e) {
 			System.out.println("No such Element exception");
 		}

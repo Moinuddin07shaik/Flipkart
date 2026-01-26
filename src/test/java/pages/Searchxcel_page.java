@@ -20,6 +20,8 @@ public class Searchxcel_page extends Library {
 		
 	}
     @FindBy(xpath="//input[@name='q']")  WebElement searchbox;
+    @FindBy(xpath="//div[@id='container']")  WebElement Homepage;
+
     
     public void Searchwithexcel() throws Throwable {
     	excel = new excellutility();
@@ -29,7 +31,15 @@ public class Searchxcel_page extends Library {
     		se.entervalue(searchbox, excel.excelread("Sheet1", i, 0));
     		searchbox.sendKeys(Keys.ENTER);
     		se.waits();
+    		
+    		if(Homepage.isDisplayed()) {
+    			excel.excelwrite("Sheet1", i, 1, "PASS");
+    		}else {
+    			excel.excelwrite("Sheet1", i, 1, "FAIL");
+    		}
     		se.navigateback();
+
     	}
+
     }
 }
