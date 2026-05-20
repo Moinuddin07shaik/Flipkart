@@ -10,54 +10,42 @@ name: Cucumber Selenium Tests
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 permissions:
-  contents: read
+  contents: write
   security-events: write
+  actions: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
           cache: maven
 
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
 
-      - name: Verify Chrome Version
-        run: google-chrome --version
-
       - name: Install Dependencies
         run: mvn clean install -DskipTests
 
-      - name: Run Cucumber Tests
+      - name: Run Tests
         run: mvn test
 
-      - name: Upload Cucumber Report
+      - name: Upload Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cucumber-report
+          name: reports
           path: target/
-
-      - name: Upload Screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: screenshots
-          path: screenshots/
 
       - name: Submit Dependency Graph
         uses: advanced-security/maven-dependency-submission-action@v4
