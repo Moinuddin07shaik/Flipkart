@@ -12,15 +12,14 @@ on:
     branches: [ "main" ]
 
 permissions:
-  contents: write
-  security-events: write
-  actions: read
+  contents: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout Code
         uses: actions/checkout@v4
 
@@ -34,18 +33,18 @@ jobs:
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
 
+      - name: Verify Chrome
+        run: google-chrome --version
+
       - name: Install Dependencies
         run: mvn clean install -DskipTests
 
-      - name: Run Tests
+      - name: Run Cucumber Tests
         run: mvn test
 
       - name: Upload Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: reports
+          name: cucumber-report
           path: target/
-
-      - name: Submit Dependency Graph
-        uses: advanced-security/maven-dependency-submission-action@v4
